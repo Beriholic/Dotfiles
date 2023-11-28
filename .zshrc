@@ -116,8 +116,8 @@ alias mycat='oneko'
 alias fire='aafire -driver curses -boldfont'
 
 #v2raya
-alias stv2='brew services run v2raya'   
-alias spv2='brew services stop v2raya'
+alias stv2='brew services run v2raya && export http_proxy=http://127.0.0.1:20171 && export https_proxy=http://127.0.0.1:20171 && export ALL_PROXY=socks5://127.0.0.1:20171'
+alias spv2='brew services stop v2raya && unset http_proxy && unset https_proxy && unset ALL_PROXY'
 
 
 # Neofetch 
@@ -187,37 +187,25 @@ alias atree='cbonsai'
 #alias nvui='$HOME/Applications/nvui'
 #alias musicfox='$HOME/Applications/musicfox'
 
+alias codefetch='onefetch'
+
+alias nvid='neovide'
+
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-my_lazyload_add_command() {
-    local command_name=$1
-    eval "${command_name}() { \
-        unfunction ${command_name}; \
-        _my_lazyload_command_${command_name}; \
-        return ${command_name} \"\$@\"; \
-    }"
-}
-my_lazyload_add_comp() {
-    local command_name=$1
-    local comp_name="_my_lazyload__compfunc_${command_name}"
-    eval "${comp_name}() { \
-        compdef -d ${comp_name}; \
-        unfunction ${comp_name}; \
-        _my_lazyload_comp_${command_name}; \
-    }"
-    compdef $comp_name $command_name
-}
+alias ktheme='kitten themes'
+alias gtp='gtop'
 
-_my_lazyload_comp_kubectl() {
-    source <(kubectl completion zsh)
-}
+alias pip='pip3'
 
-my_lazyload_add_comp kubectl
+alias g++='g++-13'
 
-_my_lazyload_comp_helm() {
-    source <(helm completion zsh)
-}
+alias yay='brew update && brew upgrade'
 
-my_lazyload_add_comp helm
-export PATH="/usr/local/opt/tomcat@9/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+alias 'yay -Ss'='brew search'
+alias 'yay -S'='brew install'
