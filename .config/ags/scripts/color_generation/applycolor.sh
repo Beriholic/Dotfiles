@@ -60,19 +60,19 @@ apply_fuzzel() {
 
 apply_hyprland() {
     # Check if scripts/templates/hypr/hyprland/colors.conf exists
-    if [ ! -f "scripts/templates/hypr/hyprland/colors.conf" ]; then
+    if [ ! -f "scripts/templates/hypr/colors.conf" ]; then
         echo "Template file not found for Hyprland colors. Skipping that."
         return
     fi
     # Copy template
-    mkdir -p "$HOME"/.cache/ags/user/generated/hypr/hyprland
-    cp "scripts/templates/hypr/hyprland/colors.conf" "$HOME"/.cache/ags/user/generated/hypr/hyprland/colors.conf
+    mkdir -p "$HOME"/.cache/ags/user/generated/hypr/
+    cp "scripts/templates/hypr/colors.conf" "$HOME"/.cache/ags/user/generated/hypr/colors.conf
     # Apply colors
     for i in "${!colorlist[@]}"; do
-        sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/hypr/hyprland/colors.conf
+        sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/hypr/colors.conf
     done
 
-    cp "$HOME"/.cache/ags/user/generated/hypr/hyprland/colors.conf "$HOME"/.config/hypr/hyprland/colors.conf
+    cp "$HOME"/.cache/ags/user/generated/hypr/colors.conf "$HOME"/.config/hypr/colors.conf
 }
 
 apply_hyprlock() {
@@ -138,3 +138,4 @@ apply_ags &
 apply_hyprland &
 apply_kitty &
 apply_fuzzel &
+apply_hyprlock &
