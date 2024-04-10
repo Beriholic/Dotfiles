@@ -12,7 +12,6 @@ archlinuxcn-keyring
 aria2
 ark
 asciiquarium
-axel
 base
 base-devel
 bat
@@ -32,7 +31,6 @@ clipman
 cmake
 cowpatty
 d2
-dart-sass
 dbeaver
 dnsmasq
 docker
@@ -58,7 +56,6 @@ fd
 firefox
 fish
 font-manager
-foot
 freeradius
 fuzzel
 git-lfs
@@ -80,7 +77,6 @@ grpc
 grub
 gtk4
 gtksourceview3
-gtksourceviewmm
 hcxdumptool
 hcxtools
 hmcl
@@ -189,16 +185,14 @@ sof-firmware
 starship
 swappy
 swayidle
-swww
+swww-git
 systemd-numlockontty
 tealdeer
 telegram-desktop
 tesseract
-tesseract-data-eng
 thefuck
 thrift
 timeshift
-tinyxml2
 tlp
 tlp-rdw
 toastify
@@ -227,8 +221,7 @@ wlsunset
 woff-fira-code
 wqy-microhei
 wqy-zenhei
-xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xdg-user-dirs
 xf86-video-amdgpu
 xorg-xhost

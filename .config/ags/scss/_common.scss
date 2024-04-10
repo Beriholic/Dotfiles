@@ -1,10 +1,19 @@
+// * {
+//     border: 1px solid $onSurfaceVariant; // Debugging
+// }
+
+// *:focus {
+//     outline: 1px solid mix($onSurface, $surface, 40%);
+//     -gtk-outline-radius: $rounding_small;
+// }
+
 * {
     selection {
         background-color: $secondary;
         color: $onSecondary;
     }
 
-    caret-color: $onLayer2;
+    caret-color: $primary;
 }
 
 @keyframes appear {
@@ -18,11 +27,11 @@
 }
 
 menu {
-    @include small-rounding;
-    border: 1px solid mix($surfaceContainer, $onBackground, 80%); // I hate this
+    @include elevation-border-softer;
     padding: 0.681rem;
-    background: opacify($surfaceContainer, 1);
-    color: $onSurface;
+    background: $surfaceVariant;
+    color: $onSurfaceVariant;
+    border-radius: 1.159rem;
     -gtk-outline-radius: 1.159rem;
 
     animation-name: appear;
@@ -41,18 +50,18 @@ menubar>menuitem {
 menu>menuitem {
     padding: 0.4em 1.5rem;
     background: transparent;
-    transition: 0.2s ease background-color;
+    transition: 0.2s ease background;
     border-radius: 0.545rem;
     -gtk-outline-radius: 0.545rem;
 }
 
 menu>menuitem:hover,
 menu>menuitem:focus {
-    background-color: $layer2Hover;
+    background-color: mix($surfaceVariant, $onSurfaceVariant, 90%);
 }
 
 menu>menuitem:active {
-    background-color: $layer2Active;
+    background-color: mix($surfaceVariant, $onSurfaceVariant, 80%);
 }
 
 radio {
@@ -80,8 +89,9 @@ tooltip {
     animation-timing-function: ease-out;
     animation-iteration-count: 1;
     @include normal-rounding;
-    background-color: opacify($color: $inverseSurface, $amount: 1);
-    color: $inverseOnSurface;
+    background-color: $surfaceVariant;
+    color: $onSurfaceVariant;
+    border: 1px solid $onSurfaceVariant;
 }
 
 /////////////////////////////////////////
@@ -97,8 +107,8 @@ tooltip {
 popover {
     @include elevation-border-softer;
     padding: 0.681rem;
-    background: $surfaceContainerHigh;
-    color: $onSurface;
+    background: $surfaceVariant;
+    color: $onSurfaceVariant;
     border-radius: 1.159rem;
     -gtk-outline-radius: 1.159rem;
 
@@ -113,11 +123,17 @@ popover {
 
 .configtoggle-box {
     padding: 0.205rem 0.341rem;
+    border: 0.136rem solid transparent;
+}
+
+.configtoggle-box:focus {
+    border: 0.136rem solid mix($onSurface, $surface, 40%);
 }
 
 .switch-bg {
     @include element_decel;
     @include full-rounding;
+    background-color: mix($surface, $background, 50%);
     border: 0.136rem solid $onSurface;
     min-width: 2.864rem;
     min-height: 1.637rem;
@@ -132,7 +148,7 @@ popover {
     @include full-rounding;
     @include menu_decel;
     background-color: $onSurface;
-    color: $layer1;
+    color: $surface;
     min-width: 0.819rem;
     min-height: 0.819rem;
     margin-left: 0.477rem;
@@ -179,7 +195,7 @@ popover {
 
 .segment-btn:focus,
 .segment-btn:hover {
-    background-color: $layer0Hover;
+    background-color: $hovercolor;
 }
 
 .segment-btn-enabled {
@@ -189,32 +205,6 @@ popover {
 
 .segment-btn-enabled:hover,
 .segment-btn-enabled:focus {
-    background-color: $secondaryContainer;
-    color: $onSecondaryContainer;
-}
-
-.multipleselection-container {}
-
-.multipleselection-btn {
-    @include small-rounding;
-    padding: 0rem 0.341rem;
-    border: 0.034rem solid $outline;
-    color: $onSurface;
-}
-
-.multipleselection-btn:focus,
-.multipleselection-btn:hover {
-    background-color: $layer0Hover;
-    color: $onSurface;
-}
-
-.multipleselection-btn-enabled {
-    background-color: $secondaryContainer;
-    color: $onSecondaryContainer;
-}
-
-.multipleselection-btn-enabled:hover,
-.multipleselection-btn-enabled:focus {
     background-color: $secondaryContainer;
     color: $onSecondaryContainer;
 }
@@ -241,65 +231,4 @@ popover {
 
 .gap-h-15 {
     min-width: 1.023rem;
-}
-
-.tab-btn {
-    @include small-rounding;
-    @include element_decel;
-    min-height: 2.5rem;
-    color: $onLayer0;
-}
-
-.tab-btn:hover {
-    background-color: $layer0Hover;
-}
-
-.tab-btn:focus {
-    background-color: $surfaceContainerLow;
-}
-
-.tab-btn-active>box>label {
-    color: $primary;
-}
-
-.tab-indicator {
-    transition: 180ms ease-in-out; // Doesn't look that good, but it syncs with the GtkStack
-    min-height: 0.205rem;
-    padding: 0rem 1.023rem;
-    color: $primary;
-}
-
-.tab-icon {
-    @include element_decel;
-    @include full-rounding;
-    min-width: 2.25rem;
-    min-height: 2.25rem;
-    font-size: 1.406rem;
-    color: $onSurface;
-}
-
-.tab-icon-active {
-    background-color: $secondaryContainer;
-    color: $onSecondaryContainer;
-}
-
-.tab-icon-expandable {
-    transition: 0ms;
-    @include full-rounding;
-    min-width: 2.25rem;
-    min-height: 2.25rem;
-    font-size: 1.406rem;
-    color: $onSurface;
-    padding: 0rem;
-}
-
-.tab-icon-expandable-active {
-    background-color: $secondaryContainer;
-    color: $onSecondaryContainer;
-    padding: 0rem 0.545rem;
-    min-width: 9.545rem;
-}
-
-widget {
-    @include small-rounding;
 }

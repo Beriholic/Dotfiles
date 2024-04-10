@@ -18,13 +18,10 @@ gqrx
 gradience-git
 gtklock
 hollywood
-hypridle-git
-hyprlock-git
 hyprpicker-git
 lexend-fonts-git
 linuxqq
 python-material-color-utilities
-python-materialyoucolor-git
 qflipper-bin
 sam
 swaylock-effects-git
@@ -32,7 +29,6 @@ tlpui
 todesk-bin
 try
 ttf-material-symbols-variable-git
-ttf-readex-pro
 ttf-wps-fonts
 typora-free
 v4l2loopback-dkms-git

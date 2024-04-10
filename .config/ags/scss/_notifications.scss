@@ -1,19 +1,21 @@
+$notif_surface: $t_background;
+
 @mixin notif-rounding {
     @include normal-rounding;
 }
 
 .notif-low {
     @include notif-rounding;
-    background-color: $layer2;
-    color: $onLayer2;
+    background-color: $l_l_t_surfaceVariant;
+    color: $onSurfaceVariant;
     padding: $rounding_small;
     padding-right: $rounding_small + 0.545rem;
 }
 
 .notif-normal {
     @include notif-rounding;
-    background-color: $layer2;
-    color: $onLayer2;
+    background-color: $l_l_t_surfaceVariant;
+    color: $onSurfaceVariant;
     padding: $rounding_small;
     padding-right: $rounding_small + 0.545rem;
 }
@@ -27,29 +29,22 @@
 }
 
 .notif-clicked-low {
-    background-color: $surfaceContainerLow;
+    background-color: mix($l_l_t_surfaceVariant, $t_onSurfaceVariant, 85%);
 }
 
 .notif-clicked-normal {
-    background-color: $surfaceContainerLow;
+    background-color: mix($l_l_t_surfaceVariant, $t_onSurfaceVariant, 85%);
 }
 
 .notif-clicked-critical {
-    background-color: $onSecondary;
-    color: $onSecondaryContainer;
+    background-color: mix($secondaryContainer, $onSecondaryContainer, 95%);
 }
 
 .popup-notif-low {
     @include notif-rounding;
     min-width: 30.682rem;
-    background-color: $layer2;
-
-    @if $transparent ==True {
-        background-color: $layer0;
-    }
-
-    border: 0.034rem solid $outlineVariant;
-    color: $onLayer2;
+    background-color: $notif_surface;
+    color: $onSurfaceVariant;
     padding: $rounding_small;
     padding-right: $rounding_small + 0.545rem;
 }
@@ -57,14 +52,8 @@
 .popup-notif-normal {
     @include notif-rounding;
     min-width: 30.682rem;
-    background-color: $layer2;
-
-    @if $transparent ==True {
-        background-color: $layer0;
-    }
-
-    border: 0.034rem solid $outlineVariant;
-    color: $onLayer2;
+    background-color: $notif_surface;
+    color: $onSurfaceVariant;
     padding: $rounding_small;
     padding-right: $rounding_small + 0.545rem;
 }
@@ -73,31 +62,29 @@
     @include notif-rounding;
     min-width: 30.682rem;
     background-color: $secondaryContainer;
-    border: 0.034rem solid $onSecondaryContainer;
     color: $onSecondaryContainer;
     padding: $rounding_small;
     padding-right: $rounding_small + 0.545rem;
 }
 
 .popup-notif-clicked-low {
-    background-color: $surfaceContainerLow;
+    background-color: mix($notif_surface, $onBackground, 94%);
 }
 
 .popup-notif-clicked-normal {
-    background-color: $surfaceContainerLow;
+    background-color: mix($notif_surface, $onBackground, 94%);
 }
 
 .popup-notif-clicked-critical {
-    background-color: $onSecondary;
-    color: $onSecondaryContainer;
+    background-color: mix($secondaryContainer, $onSecondaryContainer, 96%);
 }
 
 .notif-body-low {
-    color: $outline;
+    color: mix($onSurfaceVariant, $surfaceVariant, 67%);
 }
 
 .notif-body-normal {
-    color: $outline;
+    color: mix($onSurfaceVariant, $surfaceVariant, 67%);
 }
 
 .notif-body-critical {
@@ -112,23 +99,23 @@
 }
 
 .notif-icon-material {
-    background-color: $secondaryContainer;
+    background-color: $t_secondaryContainer;
     color: $onSecondaryContainer;
 }
 
 .notif-icon-material-low {
-    background-color: $secondaryContainer;
+    background-color: $t_secondaryContainer;
     color: $onSecondaryContainer;
 }
 
 .notif-icon-material-normal {
-    background-color: $secondaryContainer;
+    background-color: $t_secondaryContainer;
     color: $onSecondaryContainer;
 }
 
 .notif-icon-material-critical {
-    background-color: $secondary;
-    color: $onSecondary;
+    background-color: $t_onSecondaryContainer;
+    color: $secondaryContainer;
 }
 
 .notif-expand-btn {
@@ -139,11 +126,11 @@
 
 .notif-expand-btn:hover,
 .notif-expand-btn:focus {
-    background: $layer2Hover;
+    background: $hovercolor;
 }
 
 .notif-expand-btn:active {
-    background: $layer2Active;
+    background: $activecolor;
 }
 
 .notif-listaction-btn {
@@ -153,11 +140,11 @@
 
 .notif-listaction-btn:hover,
 .notif-listaction-btn:focus {
-    background-color: $layer2Hover;
+    background-color: $hovercolor;
 }
 
 .notif-listaction-btn:active {
-    background-color: $layer2Active;
+    background-color: $activecolor;
 }
 
 .notif-listaction-btn-enabled {
@@ -176,7 +163,8 @@
 
 .osd-notif {
     @include notif-rounding;
-    background-color: $layer0;
+    background-color: transparentize($background,
+            $transparentize_surface_amount_subtract_surface );
     min-width: 30.682rem;
 }
 
@@ -213,43 +201,43 @@
 }
 
 .notif-action-low {
-    background-color: $surfaceContainerHighest;
-    color: $onLayer2;
+    background-color: mix($t_onSurfaceVariant, $t_surface, 10%);
+    color: $onSurfaceVariant;
 }
 
 .notif-action-low:focus,
 .notif-action-low:hover {
-    border: 0.040rem solid $outlineVariant;
+    background-color: $hovercolor;
 }
 
 .notif-action-low:active {
-    background-color: $surfaceBright;
+    background-color: $activecolor;
 }
 
 .notif-action-normal {
-    background-color: $surfaceContainerHighest;
-    color: $onSurface;
+    background-color: mix($t_onSurfaceVariant, $t_surface, 10%);
+    color: $onSurfaceVariant;
 }
 
 .notif-action-normal:focus,
 .notif-action-normal:hover {
-    border: 0.040rem solid $outlineVariant;
+    background-color: $hovercolor;
 }
 
 .notif-action-normal:active {
-    background-color: $surfaceBright;
+    background-color: $activecolor;
 }
 
 .notif-action-critical {
-    background-color: mix($secondary, $onSecondary, 30%);
+    background-color: mix($t_onSecondaryContainer, $t_secondaryContainer, 10%);
     color: $onSurfaceVariant;
 }
 
 .notif-action-critical:focus,
 .notif-action-critical:hover {
-    border: 0.040rem solid $outline;
+    background-color: mix($t_onSecondaryContainer, $t_secondaryContainer, 18%);
 }
 
 .notif-action-critical:active {
-    background-color: mix($secondary, $onSecondary, 40%);
+    background-color: mix($t_onSecondaryContainer, $t_secondaryContainer, 23%);
 }
