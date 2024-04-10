@@ -1,10 +1,20 @@
 lastupdatecheck: 1696402509
 recentrepos:
 - /home/beri/Berijects/Dotfiles
-- /home/beri/Berijects/rust/wd
+- /home/beri/Berijects/java/Reusehive
+- /home/beri/Berijects/QiMenDunJia
+- /home/beri/Berijects/notebackup
+- /home/beri/Berijects/rust/Bnote
 - /home/beri/.config/nvim
+- /home/beri/Berijects/rust/wd
 startuppopupversion: 5
+lastversion: 0.41.0
 customcommandshistory:
 - q
 hidecommandlog: false
 ignorewhitespaceindiffview: false
+diffcontextsize: 3
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
