@@ -2,5 +2,5 @@ function reboot -d "Confirm before reboot"
     read -l -n1 -p "set_color -o red; echo -n 'really reboot? [y/n] '; set_color normal" ans
     string match -qi y -- $ans
     or return 1
-    command reboot $argv
+    command systemctl reboot || loginctl reboot
 end

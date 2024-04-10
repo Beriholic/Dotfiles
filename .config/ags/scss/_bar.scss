@@ -13,6 +13,7 @@ $bar_ws_width_focus_active: 2.045rem;
 }
 
 .bar-bg {
+    // background-color: transparent;
     background-color: $layer0;
     min-height: 2.727rem;
 }
@@ -300,6 +301,7 @@ $bar_ws_width_focus_active: 2.045rem;
 
 .corner {
     background-color: $layer0;
+    //background-color: transparent;
     @include large-rounding;
 }
 
