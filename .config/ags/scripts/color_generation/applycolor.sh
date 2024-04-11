@@ -117,6 +117,32 @@ apply_kitty() {
     cp "$HOME"/.cache/ags/user/generated/kitty/kitty.conf "$HOME/.config/kitty/kitty.conf"
 }
 
+apply_gtk() { # Using gradience-cli
+    lightdark=$(get_light_dark)
+
+    # Copy template
+    mkdir -p "$HOME"/.cache/ags/user/generated/gradience
+    cp "scripts/templates/gradience/preset.json" "$HOME"/.cache/ags/user/generated/gradience/preset.json
+
+    # Apply colors
+    for i in "${!colorlist[@]}"; do
+        sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]}/g" "$HOME"/.cache/ags/user/generated/gradience/preset.json
+    done
+
+    mkdir -p "$HOME/.config/presets" # create gradience presets folder
+    gradience-cli apply -p "$HOME"/.cache/ags/user/generated/gradience/preset.json --gtk both
+
+    # Set light/dark preference
+    # And set GTK theme manually as Gradience defaults to light adw-gtk3
+    # (which is unreadable when broken when you use dark mode)
+    if [ "$lightdark" = "light" ]; then
+        gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
+        gsettings set org.gnome.desktop.interface color-scheme prefer-light
+    else
+        gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+        gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    fi
+}
 
 if [[ "$1" = "--bad-apple" ]]; then
     lightdark=$(get_light_dark)
@@ -136,6 +162,8 @@ fi
 
 apply_ags &
 apply_hyprland &
+apply_gtk &
 apply_kitty &
 apply_fuzzel &
 apply_hyprlock &
+# apply_gtk &
