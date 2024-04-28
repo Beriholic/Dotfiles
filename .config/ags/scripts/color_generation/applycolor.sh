@@ -114,7 +114,7 @@ apply_kitty() {
         sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]#\#}/g" "$HOME"/.cache/ags/user/generated/kitty/kitty.conf
     done
 
-    cp "$HOME"/.cache/ags/user/generated/kitty/kitty.conf "$HOME/.config/kitty/kitty.conf"
+    cp $HOME/.cache/ags/user/generated/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 }
 
 apply_gtk() { # Using gradience-cli
@@ -163,7 +163,6 @@ fi
 apply_ags &
 apply_hyprland &
 apply_gtk &
-apply_kitty &
 apply_fuzzel &
 apply_hyprlock &
-# apply_gtk &
+apply_kitty &
