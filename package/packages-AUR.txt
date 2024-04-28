@@ -48,7 +48,6 @@ sherlock-git
 sonic-pi
 sublime-text-3
 swaylock-effects-git
-tlpui
 translate-shell-git
 ttf-material-symbols-variable-git
 ttf-readex-pro

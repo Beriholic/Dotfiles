@@ -32,6 +32,7 @@ dart-sass
 dbeaver
 dialog
 docker
+docker-buildx
 docker-compose
 downgrade
 duf
@@ -124,6 +125,7 @@ neovide
 neovim
 net-tools
 networkmanager
+nload
 nomacs
 noto-fonts-cjk
 noto-fonts-emoji
@@ -189,6 +191,7 @@ timeshift
 tinyxml2
 tlp
 tlp-rdw
+tlpui
 toastify
 tree
 ttf-font-awesome
