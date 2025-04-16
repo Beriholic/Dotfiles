@@ -1,7 +1,7 @@
 {
   settings = {
     monitor = [
-      ",preferred, auto, 1.25"
+      ",preferred,auto,1.25"
     ];
     xwayland = {
       force_zero_scaling = true;
@@ -17,8 +17,8 @@
       repeat_delay = 240;
       repeat_rate = 50;
       force_no_accel = false;
-      sensitivity = -0.15;
-      #sensitivity=0.6
+      #sensitivity = -0.15;
+      sensitivity=0.3;
       accel_profile = "flat";
 
       touchpad = {

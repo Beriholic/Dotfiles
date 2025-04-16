@@ -16,11 +16,11 @@
       "hypridle"
       #exec-once=blueman-applet
       #exec-once=~/.config/hypr/scripts/screensharing.sh
-      "hyprctl setcursor Bibata-Modern-Classic 24"
+      "hyprctl setcursor Bibata-Modern-Classic 32"
       #exec-once=udiskie &
       #exec-once=systemctl --user start xsettingsd.servic
-      # "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1"
-      # "echo "Xft.dpi:144" | xrdb -merge"
+      "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1"
+      "echo Xft.dpi:96 | xrdb -merge"
       #exec-once=sh $HOME/.config/hypr/script/adjust-kitty-opactiy.sh
     ];
   };

@@ -67,7 +67,7 @@ in
     pointerCursor = {
       package = cursor-package;
       name = cursor-theme;
-      size = 24;
+      size = 32;
       gtk.enable = true;
     };
     file = {
