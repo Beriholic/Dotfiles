@@ -3,7 +3,6 @@
   imports = [
     hyprland.homeManagerModules.default
     ./ags.nix
-    ./anyrun.nix
     ./mimelist.nix
     ./packages.nix
     ./starship.nix

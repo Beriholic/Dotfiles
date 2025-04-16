@@ -46,6 +46,7 @@ in
     hypridle
     d-spy
     dconf-editor
+    hyprlock
 
   ];
 
