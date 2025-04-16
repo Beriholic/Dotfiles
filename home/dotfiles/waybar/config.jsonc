@@ -1,0 +1,137 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 6,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "backlight",
+        "memory",
+        "cpu",
+        "battery",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "sort-by-number": true,
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "0"
+            // "1": "壹",
+            // "2": "贰",
+            // "3": "叁",
+            // "4": "肆",
+            // "5": "伍",
+            // "6": "陆",
+            // "7": "柒",
+            // "8": "捌",
+            // "9": "玖",
+            // "10": "拾"
+        }
+    },
+    "hyprland/window": {
+        "format": "\uf061 {}",
+        "separate-outputs": true
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 1,
+        "format": "\ue641  {:%H:%M}",
+        "format-alt": "\uf133  {:%Y-%m-%d %H:%M}",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "\uf2db  {max_frequency:0.1f}GHz | {usage}%",
+        "tooltip": true,
+        "max-length": 15,
+        "on-click": ""
+    },
+    "memory": {
+        "interval": 30,
+        "format": "  {}%",
+        "format-alt": "\uf538  {used:0.1f}G",
+        "max-length": 11,
+        "tooltip-format": "RAM: {used}G / {total}G\nSwap: {swapUsed}G / {swapTotal}G"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "on-click": ""
+    },
+    "network": {
+        "format-wifi": "\uf1eb  {signalStrength}%",
+        "format-ethernet": "\udb81\udfb1  Wired",
+        "format-disconnected": "\uf071  Disconnected",
+        "on-click": "kitty -e 'nmtui'"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "\uf6a9",
+        "format-bluetooth": "\uf294 {volume}%",
+        "format-bluetooth-muted": "\ufa69 {icon}\uf294",
+        "format-icons": [
+            "󰕾"
+        ],
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "adapter": "ADP0",
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "max-length": 20,
+        "format": "{icon}  {capacity}%",
+        "format-warning": "{icon}  {capacity}%",
+        "format-critical": "{icon}  {capacity}%",
+        "format-charging": "<span font-family='JetBrainsMono Nerd Font mono'></span> {capacity}%",
+        "format-plugged": "   {capacity}%",
+        "format-alt": "{icon}  {time}",
+        "format-full": "   {capacity}%",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        "on-click-right": "wlogout"
+    }
+}
