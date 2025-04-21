@@ -1,19 +1,13 @@
 { pkgs, config, ... }:
 {
-  boot.kernelParams = ["modprobe.blacklist=nouveau"];
-  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     i2c.enable = true;
     graphics = {
       enable = true;
+      extraPackages = with pkgs; [
+        vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
+      ];
     };
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaSettings = true;
-      open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      forceFullCompositionPipeline = true;
-     };
     bluetooth = {
       enable = true;
       powerOnBoot = true;

@@ -1,7 +1,7 @@
 {
   settings = {
     monitor = [
-      ",2560x1600@165,auto,auto"
+      ",2560x1600@60,auto,auto"
     ];
     xwayland = {
       force_zero_scaling = true;

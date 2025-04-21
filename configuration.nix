@@ -43,7 +43,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  networking.hostName = "Jiny";
+  networking.hostName = "jiny";
   networking.networkmanager.enable = true;
   security.polkit.enable = true;
   #services.xserver.enable = true;

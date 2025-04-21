@@ -33,7 +33,7 @@
     }:
     {
       nixosConfigurations = {
-        Jiny = nixpkgs.lib.nixosSystem rec {
+        jiny = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = { 
             inherit hyprland inputs; 
