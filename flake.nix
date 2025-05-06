@@ -9,10 +9,10 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     ags.url = "github:Aylur/ags/v1";
     matugen = {
       url = "github:/InioX/Matugen";

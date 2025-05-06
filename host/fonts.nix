@@ -20,6 +20,8 @@
       google-fonts
       cascadia-code
       material-symbols
+      corefonts
+      vistafonts
     ];
     fontconfig = {
       antialias = true;
