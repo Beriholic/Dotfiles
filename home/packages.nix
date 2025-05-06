@@ -10,9 +10,11 @@
     jetbrains-toolbox
     bilibili
     qq
+    wpsoffice-cn
 
     # tools
     (mpv.override { scripts = [ mpvScripts.mpris ]; })
+    lazydocker
     bat
     fd
     eza

@@ -26,21 +26,21 @@ colorvalues=()
 # wallpath_png=$(sed 's/\//\\\\\//g' <<< "$wallpath_png")
 
 transparentize() {
-    local hex="$1"
-    local alpha="$2"
-    local red green blue
+  local hex="$1"
+  local alpha="$2"
+  local red green blue
 
-    red=$((16#${hex:1:2}))
-    green=$((16#${hex:3:2}))
-    blue=$((16#${hex:5:2}))
+  red=$((16#${hex:1:2}))
+  green=$((16#${hex:3:2}))
+  blue=$((16#${hex:5:2}))
 
-    printf 'rgba(%d, %d, %d, %.2f)\n' "$red" "$green" "$blue" "$alpha"
+  printf 'rgba(%d, %d, %d, %.2f)\n' "$red" "$green" "$blue" "$alpha"
 }
 
 get_light_dark() {
     lightdark=""
     if [ ! -f "$STATE_DIR/user/colormode.txt" ]; then
-        echo "" >"$STATE_DIR/user/colormode.txt"
+        echo "" > "$STATE_DIR/user/colormode.txt"
     else
         lightdark=$(sed -n '1p' "$STATE_DIR/user/colormode.txt")
     fi
@@ -61,7 +61,7 @@ apply_fuzzel() {
         sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]#\#}/g" "$CACHE_DIR"/user/generated/fuzzel/fuzzel.ini
     done
 
-    cp "$CACHE_DIR"/user/generated/fuzzel/fuzzel.ini "$XDG_CONFIG_HOME"/fuzzel/fuzzel.ini
+    cp  "$CACHE_DIR"/user/generated/fuzzel/fuzzel.ini "$XDG_CONFIG_HOME"/fuzzel/fuzzel.ini
 }
 
 apply_term() {
@@ -81,9 +81,9 @@ apply_term() {
     sed -i "s/\$alpha/$term_alpha/g" "$CACHE_DIR/user/generated/terminal/sequences.txt"
 
     for file in /dev/pts/*; do
-        if [[ $file =~ ^/dev/pts/[0-9]+$ ]]; then
-            cat "$CACHE_DIR"/user/generated/terminal/sequences.txt >"$file"
-        fi
+      if [[ $file =~ ^/dev/pts/[0-9]+$ ]]; then
+        cat "$CACHE_DIR"/user/generated/terminal/sequences.txt > "$file"
+      fi
     done
 }
 
@@ -101,7 +101,7 @@ apply_hyprland() {
         sed -i "s/{{ ${colorlist[$i]} }}/${colorvalues[$i]#\#}/g" "$CACHE_DIR"/user/generated/hypr/hyprland/colors.conf
     done
 
-    cp "$CACHE_DIR"/user/generated/hypr/hyprland/colors.conf "$XDG_CONFIG_HOME"/hypr/colors.conf
+    cp "$CACHE_DIR"/user/generated/hypr/hyprland/colors.conf "$XDG_CONFIG_HOME"/hypr/hyprland/colors.conf
 }
 
 apply_hyprlock() {
@@ -183,11 +183,12 @@ apply_kitty() {
     cp $HOME/.cache/ags/user/generated/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 }
 
+
 colornames=$(cat $STATE_DIR/scss/_material.scss | cut -d: -f1)
 colorstrings=$(cat $STATE_DIR/scss/_material.scss | cut -d: -f2 | cut -d ' ' -f2 | cut -d ";" -f1)
 IFS=$'\n'
-colorlist=($colornames)     # Array of color names
-colorvalues=($colorstrings) # Array of color values
+colorlist=( $colornames ) # Array of color names
+colorvalues=( $colorstrings ) # Array of color values
 
 apply_ags &
 apply_hyprland &
